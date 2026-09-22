@@ -1,0 +1,6 @@
+Id,ProductId,UserId,ProfileName,HelpfulnessNumerator,HelpfulnessDenominator,Score,Time,Summary,Text
+1,P1,U1,Alice,9,10,5,1303862400,Great,Great product<br />Would buy again.
+2,P2,U2,Bob,8,10,4,1346976000,Good,Good quality.
+3,P3,U3,Carol,2,10,1,1219017600,Bad,Tasted terrible.
+4,P4,U4,Dan,0,0,3,1307923200,Okay,It was okay.
+5,P5,U5,Eve,0,0,2,1350777600,Poor,Not worth the price.
