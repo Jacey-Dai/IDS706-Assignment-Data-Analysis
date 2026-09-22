@@ -1,8 +1,32 @@
 # Amazon Fine Food Reviews Data Analysis
 
+[![Tests](https://github.com/Jacey-Dai/IDS706-Assignment-Data-Analysis/actions/workflows/tests.yml/badge.svg?branch=week-3-testing-ci)](https://github.com/Jacey-Dai/IDS706-Assignment-Data-Analysis/actions/workflows/tests.yml)
+
 ## Project Goal
 
 This project uses Pandas and Polars to analyze Amazon food reviews, compare their performance on equivalent operations, visualize rating and helpfulness patterns, and explore a machine learning model for sentiment classification. A separate Rust notebook explores ownership, moving, cloning, and borrowing.
+
+## Setup and Installation
+
+Clone the repository and enter the project directory:
+
+```bash
+git clone git@github.com:Jacey-Dai/IDS706-Assignment-Data-Analysis.git
+cd IDS706-Assignment-Data-Analysis
+
+Install the required dependencies:
+
+python -m pip install -r requirements.txt
+
+Download Reviews.csv from the linked Kaggle dataset and place it at:
+
+data/Reviews.csv
+
+Open data_analysis.ipynb in VS Code or Jupyter, select a Python kernel, and run all cells in order.
+
+To run the automated tests:
+
+python -m pytest -v
 
 ## Dataset
 
@@ -47,6 +71,26 @@ The project:
 Reviews with scores of 1–2 were labeled negative, while scores of 4–5 were labeled positive. Three-star reviews were excluded. A balanced sample of 40,000 reviews was divided into 32,000 training observations and 8,000 testing observations.
 
 The TF-IDF and logistic regression model achieved **88.4% accuracy**. Precision, recall, and F1-scores were approximately 0.88–0.89 for both classes, indicating similar performance on positive and negative reviews.
+
+## Testing
+
+The project includes seven unit tests and one end-to-end system test.
+
+The tests cover:
+
+- CSV data loading and required-column validation;
+- timestamp and review-text preprocessing;
+- helpfulness-ratio feature engineering;
+- zero-denominator and missing-column edge cases;
+- positive-review filtering;
+- score-level aggregation;
+- machine-learning label preparation; and
+- the complete workflow from CSV loading through preprocessing and analysis.
+
+Run all tests locally from the repository root:
+
+```bash
+python -m pytest -v
 
 ## Limitations
 
