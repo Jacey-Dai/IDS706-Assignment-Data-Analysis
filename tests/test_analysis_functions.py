@@ -92,3 +92,14 @@ def test_summarize_scores():
         5,
     }
     assert summary["Percentage"].sum() == pytest.approx(100.0)
+
+
+def test_prepare_ml_data():
+    """ML preparation should remove neutral reviews and add labels."""
+    reviews = load_reviews(SAMPLE_DATA_PATH)
+    ml_data = prepare_ml_data(reviews)
+
+    assert len(ml_data) == 4
+    assert 3 not in ml_data["Score"].values
+    assert set(ml_data["Positive"]) == {0, 1}
+    assert "<br" not in ml_data.iloc[0]["Text"]
