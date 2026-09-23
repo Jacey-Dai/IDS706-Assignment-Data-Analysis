@@ -2,6 +2,11 @@
 
 [![Tests](https://github.com/Jacey-Dai/IDS706-Assignment-Data-Analysis/actions/workflows/tests.yml/badge.svg?branch=week-3-testing-ci)](https://github.com/Jacey-Dai/IDS706-Assignment-Data-Analysis/actions/workflows/tests.yml)
 
+# Slogan
+
+> **“Refactor the code, not the reviews—clean functions earn five stars.”**
+
+
 ## Project Goal
 
 This project uses Pandas and Polars to analyze Amazon food reviews, compare their performance on equivalent operations, visualize rating and helpfulness patterns, and explore a machine learning model for sentiment classification. A separate Rust notebook explores ownership, moving, cloning, and borrowing.
@@ -106,6 +111,10 @@ All seven unit tests and the end-to-end system test pass locally:
 The same test suite also passes automatically through GitHub Actions:
 
 ![Successful GitHub Actions test workflow](screenshots/github-actions-passing.png)
+
+Four independent GitHub Actions workflow runs completed successfully:
+
+![Four successful GitHub Actions workflow runs](screenshots/github-actions-runs.png)
 
 ## Limitations
 
