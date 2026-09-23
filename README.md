@@ -97,6 +97,16 @@ python -m pytest -v
 
 ![Local pytest results showing eight passing tests](screenshots/local-tests-passing.png)
 
+### Test Results
+
+All seven unit tests and the end-to-end system test pass locally:
+
+![Local pytest results showing eight passing tests](screenshots/local-tests-passing.png)
+
+The same test suite also passes automatically through GitHub Actions:
+
+![Successful GitHub Actions test workflow](screenshots/github-actions-passing.png)
+
 ## Limitations
 
 The performance comparison is based on one run, and the machine learning model uses a balanced sample rather than the dataset’s original class distribution.
