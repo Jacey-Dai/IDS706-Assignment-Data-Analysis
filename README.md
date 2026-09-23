@@ -16,22 +16,32 @@ This project uses Pandas and Polars to analyze Amazon food reviews, compare thei
 Clone the repository and enter the project directory:
 
 ```bash
-git clone git@github.com:Jacey-Dai/IDS706-Assignment-Data-Analysis.git
+git clone https://github.com/Jacey-Dai/IDS706-Assignment-Data-Analysis.git
 cd IDS706-Assignment-Data-Analysis
+```
 
 Install the required dependencies:
 
+```bash
 python -m pip install -r requirements.txt
+```
 
-Download Reviews.csv from the linked Kaggle dataset and place it at:
+Download `Reviews.csv` from the linked Kaggle dataset and place it at:
 
+```text
 data/Reviews.csv
+```
 
-Open data_analysis.ipynb in VS Code or Jupyter, select a Python kernel, and run all cells in order.
+## Running the Analysis
+
+Open `data_analysis.ipynb` in VS Code or Jupyter, select a Python kernel, and run all cells in order.
 
 To run the automated tests:
 
+```bash
 python -m pytest -v
+```
+
 
 ## Dataset
 
@@ -77,6 +87,7 @@ Reviews with scores of 1–2 were labeled negative, while scores of 4–5 were l
 
 The TF-IDF and logistic regression model achieved **88.4% accuracy**. Precision, recall, and F1-scores were approximately 0.88–0.89 for both classes, indicating similar performance on positive and negative reviews.
 
+
 ## Testing
 
 The project includes seven unit tests and one end-to-end system test.
@@ -96,11 +107,9 @@ Run all tests locally from the repository root:
 
 ```bash
 python -m pytest -v
+```
 
-
-### Local Test Results
-
-![Local pytest results showing eight passing tests](screenshots/local-tests-passing.png)
+GitHub Actions automatically installs the dependencies and runs the complete test suite after each push or pull request.
 
 ### Test Results
 
@@ -108,13 +117,14 @@ All seven unit tests and the end-to-end system test pass locally:
 
 ![Local pytest results showing eight passing tests](screenshots/local-tests-passing.png)
 
-The same test suite also passes automatically through GitHub Actions:
+The same test suite passes automatically through GitHub Actions:
 
 ![Successful GitHub Actions test workflow](screenshots/github-actions-passing.png)
 
 Four independent GitHub Actions workflow runs completed successfully:
 
 ![Four successful GitHub Actions workflow runs](screenshots/github-actions-runs.png)
+
 
 ## Limitations
 
