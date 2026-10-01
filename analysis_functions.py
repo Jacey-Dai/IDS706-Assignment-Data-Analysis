@@ -28,6 +28,16 @@ def load_reviews(file_path):
     return reviews
 
 
+def clean_review_text(text_series):
+    """Fill missing review text and normalize HTML breaks and whitespace."""
+    return (
+        text_series.fillna("")
+        .str.replace(r"<br\s*/?>", " ", regex=True)
+        .str.replace(r"\s+", " ", regex=True)
+        .str.strip()
+    )
+
+
 def preprocess_reviews(reviews):
     """Clean review text and convert Unix timestamps to dates."""
     processed = reviews.copy()
@@ -37,13 +47,7 @@ def preprocess_reviews(reviews):
         unit="s",
     )
 
-    processed["Text"] = (
-        processed["Text"]
-        .fillna("")
-        .str.replace(r"<br\s*/?>", " ", regex=True)
-        .str.replace(r"\s+", " ", regex=True)
-        .str.strip()
-    )
+    processed["Text"] = clean_review_text(processed["Text"])
 
     return processed
 
@@ -111,13 +115,7 @@ def prepare_ml_data(reviews):
         ["Text", "Score"],
     ].copy()
 
-    ml_data["Text"] = (
-        ml_data["Text"]
-        .fillna("")
-        .str.replace(r"<br\s*/?>", " ", regex=True)
-        .str.replace(r"\s+", " ", regex=True)
-        .str.strip()
-    )
+    ml_data["Text"] = clean_review_text(ml_data["Text"])
 
     ml_data["Positive"] = (ml_data["Score"] >= 4).astype(int)
 

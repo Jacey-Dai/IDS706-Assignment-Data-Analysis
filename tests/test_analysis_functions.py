@@ -12,6 +12,7 @@ from analysis_functions import (
     prepare_ml_data,
     preprocess_reviews,
     summarize_scores,
+    clean_review_text,
 )
 
 SAMPLE_DATA_PATH = Path(__file__).parent / "data" / "sample_reviews.csv"
@@ -43,6 +44,25 @@ def test_load_reviews_rejects_missing_columns(tmp_path):
         match="missing required columns",
     ):
         load_reviews(invalid_path)
+
+
+def test_clean_review_text():
+    """Text cleaning should handle HTML breaks, spaces, and missing values."""
+    text = pd.Series(
+        [
+            "Great<br>product",
+            "Too    many spaces",
+            None,
+        ]
+    )
+
+    cleaned = clean_review_text(text)
+
+    assert cleaned.tolist() == [
+        "Great product",
+        "Too many spaces",
+        "",
+    ]
 
 
 def test_preprocess_reviews():
